@@ -1,0 +1,202 @@
+<html>
+
+<head>
+    <style>
+        .buttons {
+            font-size: 30px;
+            margin: 10px;
+            width: 75px;
+        }
+        #temp{
+overflow-x: scroll;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="border:2px solid black;height:100px;width:380px">
+        <p id="answer" style="font-size: 25px;">Ans</p>
+        <p id="temp" style="font-size: 25px;color: blue;"></p>
+    </div>
+    <table>
+        <tr>
+            <td class="buttons">
+                <button value="(" onclick="getvalue(`(`)" id="btnopenbrace" class="buttons"> (</button>
+            </td>
+            <td class="buttons">
+                <button value=")" onclick="getvalue(`)`)" id="btnclose" class="buttons"> ) </button>
+            </td>
+            <td class="buttons">
+                <button value="%" onclick="getvalue(`%`)" id="btnpersent" class="buttons"> % </button>
+            </td>
+            <td class="buttons">
+                <button value="CLEAR" onclick="getvalue(`CE`)" id="btnclear" class="buttons"> CE </button>
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td class="buttons">
+                <button value="7" onclick="getvalue(`7`)" id="btn7" class="buttons"> 7 </button>
+            </td>
+            <td class="buttons">
+                <button value="8" onclick="getvalue(`8`)" id="btn8" class="buttons"> 8 </button>
+            </td>
+            <td class="buttons">
+                <button value="9" onclick="getvalue(`9`)" id="btn9" class="buttons"> 9 </button>
+            </td>
+            <td class="buttons">
+                <button value="/" onclick="getvalue(`/`)" id="btn/" class="buttons"> / </button>
+            </td>
+        </tr>
+
+
+        <tr>
+            <td class="buttons">
+                <button value="4" onclick="getvalue(`4`)" id="btn4" class="buttons"> 4 </button>
+            </td>
+            <td class="buttons">
+                <button value="5" onclick="getvalue(`5`)" id="btn5" class="buttons"> 5 </button>
+            </td>
+            <td class="buttons">
+                <button value="6" onclick="getvalue(`6`)" id="btn6" class="buttons"> 6 </button>
+            </td>
+            <td class="buttons">
+                <button value="*" onclick="getvalue(`x`)" id="btnmultiply" class="buttons"> x </button>
+            </td>
+        </tr>
+
+
+
+
+        <tr>
+            <td class="buttons">
+                <button value="1" onclick="getvalue(`1`)" id="btn1" class="buttons"> 1 </button>
+            </td>
+            <td class="buttons">
+                <button value="2" onclick="getvalue(`2`)" id="btn2" class="buttons"> 2 </button>
+            </td>
+            <td class="buttons">
+                <button value="3" onclick="getvalue(`3`)" id="btn3" class="buttons"> 3 </button>
+            </td>
+            <td class="buttons">
+                <button value="-" onclick="getvalue(`-`)" id="btnsudscract" class="buttons"> - </button>
+            </td>
+        </tr>
+
+        </tr>
+
+
+
+        <tr>
+            <td class="buttons">
+                <button value="0" onclick="getvalue(`0`)" id="btn0" class="buttons"> 0 </button>
+            </td>
+            <td class="buttons">
+                <button value="." onclick="getvalue(`.`)" id="btn." class="buttons"> . </button>
+            </td>
+            <td class="buttons">
+                <button value="=" onclick="getvalue(`=`)" id="btnequals" class="buttons"> = </button>
+            </td>
+            <td class="buttons">
+                <button value="+" onclick="getvalue(`+`)" id="btnadd" class="buttons"> + </button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        // let btnopenbrace = document.getElementById("btnopenbrace");
+        // btnopenbrace.addEventListener("click",btnopenbrace);
+        // let btnclosebrace=document.getElementById("btnclosebrace");
+        // let btnpercent = document.getElementById("btnpercent");
+        // let btnclear = document.getElementById("btnclear");
+        // let btn7 = document.getElementById("btn7");
+        // let btn8 = document.getElementById("btn8");
+        // let btn9 = document.getElementById("btn9");
+        // let btndivide = document.getElementById("btndivided");
+        // let btn4 = document.getElementById("btn4");
+        // let btn5 = document.getElementById("btn5");
+        // let btn6 = document.getElementById("btn6");
+        // let btnmultiply = document.getElementById("btnmultiply");
+        // let btn1 = document.getElementById("btn1");
+        // let btn2 = document.getElementById("btn2");
+        // let btn3 = document.getElementById("btn3");
+        // let btnsubscract = document.getElementById("btnsudscract");
+        // let btn0 = document.getElementById("btn0");
+        // let btndot = document.getElementById("btndot");
+        // let btnequals = document.getElementById("btnequals");
+        // let btnadd = document.getElementById("btnadd");
+
+        //     console.log(btn7);
+        //     console.log(btn7.innerHTML);
+        //     btn7.click(getvalue(7));
+        //     function addeventListenerForID(domID){
+        //         domID.addEventListener("click",getvalue())
+        //     }
+        var a;
+        var b;
+        var c;
+        var operation;
+        function getvalue(buttons) {
+            if(buttons==="CE"){
+                a=0;
+                b =0;
+                document.getElementById("temp").innerHTML ="";
+                document.getElementById("answer").innerHTML = "Ans";
+                return
+            }
+            if (buttons != "+" && buttons != "=" && buttons != "x" && buttons != "-" && buttons != "/") {
+console.log(buttons);
+                document.getElementById("temp").innerHTML += buttons;
+            } else if(buttons!= "="){
+                console.log(buttons);
+                operation = buttons;
+            }
+            switch (buttons) {
+                case "+":
+                case "-":
+                case "x":
+                case "/":
+                    a = document.getElementById("temp").innerHTML;
+                    document.getElementById("temp").innerHTML = "";
+                    console.log(a);
+                    break;
+                case "=":
+                    b = document.getElementById("temp").innerHTML;
+                    a = Number(a);
+                    b = Number(b);
+                    console.log(operation);
+                    switch (operation) {
+                        case "+":
+                           c= a + b
+                            break;
+                        case "-":
+                           c= a - b
+                            break;
+                        case "x":
+                            console.log("hitted");
+                           c= a * b
+                            break;
+                        case "/":
+                           c= a / b
+                            break;
+
+                        default:
+                            break;
+                    }
+                    console.log(c);
+                    document.getElementById("temp").innerHTML = "";
+                    document.getElementById("answer").innerHTML = c;
+                default:
+                    break;
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>
